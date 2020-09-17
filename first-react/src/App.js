@@ -11,7 +11,7 @@ class App extends Component {
           <Title titre='je test react'></Title>
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            <Title name="CA FONCTIONNNNNNNE!!!!!YOUPIIII LOOK le logo a changé de sens et va plus vite! le CSS c'est fun!" />
+            <Title name="CA FONCTIONNNNNNNE!!!!!YOUPIIII LOOK le logo a changé de sens et va plus vite!Vive le CSS, vive le props et vive le code!!!" />
           </p>
           <a
             className="App-link"
