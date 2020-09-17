@@ -5,9 +5,9 @@ class Title extends Component {
   render() {
     return (
       <div>
-     <h1>je test react</h1>
-     <code>{this.props.name}</code>
-     </div>
+        <h1>{this.props.titre}</h1>
+        {this.props.name}
+      </div>
     );
   }
 }

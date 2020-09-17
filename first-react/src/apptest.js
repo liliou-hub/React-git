@@ -8,10 +8,10 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <Title titre='je test react'></Title>
+          <Title></Title>
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            <Title name="CA FONCTIONNNNNNNE!!!!!YOUPIIII LOOK le logo a changé de sens et va plus vite! le CSS c'est fun!" />
+            <code Name="test">CA FONCTIONNNNNNNE!!!!!YOUPIIII LOOK le logo a changé de sens et va plus vite! le CSS c'est fun!</code> 
           </p>
           <a
             className="App-link"
@@ -19,7 +19,7 @@ class App extends Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <em>Learn React</em>
+           <em>Learn React</em>
           </a>
         </header>
       </div>
