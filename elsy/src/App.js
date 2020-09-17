@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Title from './components/Title.js'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <Title></Title>
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            <code Name="test">CA FONCTIONNNNNNNE!!!!!YOUPIIII LOOK le logo a changer de sens et va plus vite! le CSS c'est fun!</code> 
+            Edit <code>src/App.js</code> and save to reload.
           </p>
           <a
             className="App-link"
@@ -19,7 +17,7 @@ class App extends Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-           <em>Learn React</em>
+            Learn React
           </a>
         </header>
       </div>

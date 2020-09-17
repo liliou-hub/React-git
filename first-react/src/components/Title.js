@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 
-class Title extends components {
-    render() {
-        return (          
-            <h1>Name: {this.props.name}</h1>
-        );
-    }
+
+class Title extends Component {
+  render() {
+    return (
+      <div>
+     <h1>je test react</h1>
+     <code>{this.props.name}</code>
+     </div>
+    );
+  }
 }
 
 export default Title;
