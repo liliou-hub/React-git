@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Person from './component/Person.js';
+import Person from './components/Person.js';
 
 const MIN_TEMPERATURE = -20
 const MAX_TEMPERATURE = 40
@@ -12,12 +12,13 @@ const MAX_STEPS = 50000
 class App extends Component {
   render() {
     return (
-      <div className='app'>Bonjour!
-        <div className='fluid-container'>
-          <p>Battements de coeur: 80</p>
-          <p>Température : -20</p>
-          <p>Nombre de pas : 0</p>          
-        </div>
+      <div className='app'>
+      <Person name="directions_walk"/ >
+        {/* <div className='fluid-container'>
+          <p>Battements de coeur:{MIN_HEART}</p>
+          <p>Température : {MIN_TEMPERATURE}</p>
+          <p>Nombre de pas : {MIN_STEPS}</p>          
+        </div> */}
       </div>
     );
   }
