@@ -8,7 +8,7 @@ class Person extends Component {
             <div className='box col-md-2 col-6'>
                 <span class="material-icons" style={{ fontSize: '100', color: 'Black' }}>
                 {/* directions_walk */}
-                    {this.props.name}
+                    {this.props.icon}
                 </span>
             </div>
         );

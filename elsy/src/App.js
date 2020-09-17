@@ -13,7 +13,7 @@ class App extends Component {
   render() {
     return (
       <div className='app'>
-      <Person name="directions_walk"/ >
+      <Person icon="directions_walk"/ >
         {/* <div className='fluid-container'>
           <p>Battements de coeur:{MIN_HEART}</p>
           <p>Température : {MIN_TEMPERATURE}</p>
