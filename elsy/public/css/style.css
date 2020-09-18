@@ -1,0 +1,18 @@
+.box :nth-child(even) {
+   color: #CCC;
+   height: 190;
+   padding: 10;
+   text-justify: center;
+  }
+
+.box :nth-child(odd) {
+    color: #AAA;
+    height: 190;
+   padding: 10;
+   text-justify: center;
+   }
+
+   .water{
+    background-color:#3A85FF;
+    color:white;
+   }
