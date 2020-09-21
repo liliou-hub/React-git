@@ -5,16 +5,12 @@ import React, { Component } from 'react';
 
 class Counter extends Component {
 
-    componentDidMount(){
-        
-    }
-
     render() {
         return (
             <div>
-                <h2>{this.props.counter}</h2>
-                {this.props.incrementFn}
-                {this.props.decrementFn}     
+                <h2>{this.props.count}</h2>        
+                <button onClick={this.props.incrementCountFn} style={{background:'green'}}>+</button>  
+                <button onClick={this.props.decrementCountFn} style={{background:'red'}}>-</button>   
             </div>
         );
     }
