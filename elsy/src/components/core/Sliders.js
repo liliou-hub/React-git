@@ -1,0 +1,22 @@
+import React, { Component } from 'react';
+import RCSlider, { Range } from 'rc-slider';
+import 'rc-slider/assets/index.css';
+
+
+
+class Sliders extends Component {
+    render() {
+        return (
+            <div>
+                <RCSlider max={this.props.max}
+                          min={this.props.min}
+                          onChange={this.props.onChange}
+                          value={this.props.value}
+                ></RCSlider>
+
+            </div>
+        );
+    }
+}
+
+export default Sliders;
