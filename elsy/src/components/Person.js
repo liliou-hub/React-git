@@ -10,7 +10,7 @@ class Person extends Component {
             <div className='box col-md-2 col-6'>
                 <Icon name='directions_walk' color= {'black'}/>
                 <p>{this.props.steps} steps</p>    
-                <Sliders   max={this.props.max}
+                <Sliders  max={this.props.max}
                           min={this.props.min}
                           onChange={this.props.onChange}
                           value={this.props.steps}>

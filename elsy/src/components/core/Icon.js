@@ -8,8 +8,6 @@ class Icon extends Component {
             <div>
                 <span className="material-icons" style={{ fontSize:100, color:this.props.color}} >                
                 {this.props.name}  
-                
-
                 </span> 
             </div>
         );

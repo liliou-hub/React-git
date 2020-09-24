@@ -9,7 +9,6 @@ class Person extends Component {
             <div className='box col-md-2 col-6'>
                 <Icon name='local_drink' color= {'#3A85FF'}/>
                 <p>{this.props.water} L</p>    
-               
             </div>
         );
     }

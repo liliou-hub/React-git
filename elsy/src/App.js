@@ -36,56 +36,66 @@ class App extends Component {
   }
 
   onHeartChange(val) {
+    let newWater = this.calculateWater(this.state)
     this.setState({
-  heart:val
+      heart: val,
+      water:newWater
     })
   }
 
   onTemperatureChange(val) {
+    let newWater = this.calculateWater(this.state)
     this.setState({
-  temperature:val
+      temperature: val,
+      water: newWater
     })
   }
 
   onStepsChange(val) {
+    let newWater = this.calculateWater(this.state)
     this.setState({
-  steps:val
+      steps: val,
+      water:newWater
     })
   }
 
-  calculateWater(val) {
-    this.setState({
-    water:((1.5*0.02)/val)  
-     
-  
-    })
+  calculateWater(obj) {
+    let liters = 1.5
+
+    if (obj.heart > 120) {
+      let coeur = obj.heart - 120
+      liters += coeur * 0.0008
+    }
+
+    if (obj.temperature > 20) {
+      let temp = obj.temperature - 20
+      liters += temp * 0.02
+    }
+
+    if (obj.steps > 10000) {
+      let walk = obj.steps - 10000
+      liters += walk * 0.00002
+    }
+    return liters
   }
-  
 
-  // temperature:for(var i=20; i<=40; i++){
-  //   if (onHeartChange>20){
-  //     return 1,5+0,02
-  //   }
-  // }
-
-  
   render() {
     return (
       <div className='App'>
         <Water water={this.state.water}></Water>
         <Person steps={this.state.steps}
-                min={MIN_STEPS}
-                max={MAX_STEPS}
-                onChange={this.onStepsChange}
+          min={MIN_STEPS}
+          max={MAX_STEPS}
+          onChange={this.onStepsChange}
         ></Person>
         <HeartRate heart={this.state.heart}
-                   min={MIN_HEART}
-                   max={MAX_HEART}
-                   onChange={this.onHeartChange}></HeartRate>
-       <Temperature temperature={this.state.temperature}
-                   min={MIN_TEMPERATURE}
-                   max={MAX_TEMPERATURE}
-                   onChange={this.onTemperatureChange}></Temperature>            
+          min={MIN_HEART}
+          max={MAX_HEART}
+          onChange={this.onHeartChange}></HeartRate>
+        <Temperature temperature={this.state.temperature}
+          min={MIN_TEMPERATURE}
+          max={MAX_TEMPERATURE}
+          onChange={this.onTemperatureChange}></Temperature>
       </div>
     );
   }
