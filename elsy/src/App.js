@@ -25,7 +25,7 @@ class App extends Component {
     this.onHeartChange = this.onHeartChange.bind(this);
     this.onTemperatureChange = this.onTemperatureChange.bind(this)
     this.onStepsChange = this.onStepsChange.bind(this)
-    this.calculateWater = this.calculateWater.bind(this)
+    this.calculateWater = this.calculateWater.bind(this) 
 
     this.state = {
       water: 0,
@@ -36,10 +36,10 @@ class App extends Component {
   }
 
   onHeartChange(val) {
-    let newWater = this.calculateWater(this.state)
+    // let newWater = this.calculateWater(this.state)
     this.setState({
       heart: val,
-      water:newWater
+      // water:newWater
     })
   }
 
