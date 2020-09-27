@@ -10,37 +10,47 @@ import Button from './components/core/Button'
 class App extends Component {
 
   constructor() {
-    super()
-
-    this.handleClick = this.handleClick.bind(this) 
+    super();
 
     this.state = {
-      activeTab:Add,
-      items:[]
+      activeTab: 'add',
+      items: []
     }
+
+    // this.handleClick = this.handleClick.bind(this)
   }
 
-  handleClick(Add){
+
+  handleClick (activeTab){
     this.setState({
-      activeTab:Add
-    })
-  
-
+      activeTab
+    });
   }
+
 
 
   render() {
     return (
       <div className="App">
-       <Add></Add>
-       <Pay></Pay>
-       <List></List>   
-       <div className="row justify-content-center">
-       <Button onClick ={this.handleClick}  isSelected={this.state.isSelected} children='Add'/>
-       <Button onClick={this.handleClick}  isSelected={this.state.isSelected} children='List'/>
-       <Button onClick={this.handleClick} isSelected={this.state.isSelected}  children='Pay'/>
-       </div>
-       
+        <div className="App-header">
+          <h1>Bakery</h1>
+        </div>
+
+        {/* <div className="row justify-content-center">
+          <Button onClick={this.handleClick} isSelected={this.isSelected} activeTab={this.state.activeTab} children={['Add']}></Button>
+          <Button onClick={this.handleClick} isSelected={this.isSelected} children='List'></Button>
+          <Button onClick={this.handleClick} isSelected={this.isSelected} children='Pay'></Button>
+        </div> */}
+
+        <div className="App btn-group">
+          <Button onClick={this.handleClick.bind(this, 'add')}> Add </Button>
+          <Button onClick={this.handleClick.bind(this, 'list')}> List </Button>
+          <Button onClick={this.handleClick.bind(this, 'pay')}> Pay </Button>
+        </div>
+
+        {this.state.activeTab === 'add' && <Add />}
+        {this.state.activeTab === 'list' && <List />}
+        {this.state.activeTab === 'pay' && <Pay />}
       </div>
 
 

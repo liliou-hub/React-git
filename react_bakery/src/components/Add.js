@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from './core/Button'
 
 
 class Add extends Component {
@@ -8,6 +9,7 @@ class Add extends Component {
     return (
       <div className="App">
         <h1>Add</h1>
+        {/* {this.props.add} */}
       </div>
 
     );
