@@ -21,12 +21,29 @@ class App extends Component {
   }
 
 
-  handleClick (activeTab){
+  // handleClick (activeTab){
+  //   this.setState({
+  //     activeTab
+  //   });
+  // }
+
+  onClickTabAdd (activeTab){
     this.setState({
-      activeTab
+      activeTab:'add'
     });
   }
 
+  onClickTabList(activeTab){
+    this.setState({
+      activeTab:'list'
+    });
+  }
+
+  onClickTabPay (activeTab){
+    this.setState({
+      activeTab:'pay'
+    });
+  }
 
 
   render() {
@@ -41,11 +58,17 @@ class App extends Component {
           <Button onClick={this.handleClick} isSelected={this.isSelected} children='List'></Button>
           <Button onClick={this.handleClick} isSelected={this.isSelected} children='Pay'></Button>
         </div> */}
-
+{/* 
         <div className="App btn-group">
           <Button onClick={this.handleClick.bind(this, 'add')}> Add </Button>
-          <Button onClick={this.handleClick.bind(this, 'list')}> List </Button>
+          <Button onClick={this.handleClick.bind(this, 'list')}> List </Button> 
           <Button onClick={this.handleClick.bind(this, 'pay')}> Pay </Button>
+        </div> */}
+
+        <div className="App btn-group">
+          <Button onClick={this.onClickTabAdd .bind(this)}> Add </Button>
+          <Button onClick={this.onClickTabList.bind(this)}> List </Button>
+          <Button onClick={this. onClickTabPay.bind(this)}> Pay </Button>
         </div>
 
         {this.state.activeTab === 'add' && <Add />}
