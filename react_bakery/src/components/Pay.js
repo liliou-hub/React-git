@@ -6,7 +6,7 @@ class Pay extends Component {
     render() {
         return (
             <div className="App">
-                <h1>pay</h1>
+                pay
             </div>
 
         );

@@ -1,86 +1,82 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Pay from './components/Pay'
-import Add from './components/Add'
-import List from './components/List'
+import './App.css';
+import Add from './components/Add';
+import List from './components/List';
+import Pay from './components/Pay';
 import Button from './components/core/Button'
+
+
 
 class App extends Component {
 
+
+
   constructor() {
     super();
-
+    this.onClickTabAdd = this.onClickTabAdd.bind(this);
+    this.onClickTabList = this.onClickTabList.bind(this);
+    this.onClickTabPay = this.onClickTabPay.bind(this);
     this.state = {
       activeTab: 'add',
       items: []
     }
-
-    // this.handleClick = this.handleClick.bind(this)
   }
 
 
-  // handleClick (activeTab){
-  //   this.setState({
-  //     activeTab
-  //   });
-  // }
-
-  onClickTabAdd (activeTab){
+  onClickTabAdd() {
+    console.log('tab add click')
     this.setState({
-      activeTab:'add'
-    });
+      activeTab: 'add'
+    })
   }
 
-  onClickTabList(activeTab){
+  onClickTabList() {
+    console.log('tab  list click')
     this.setState({
-      activeTab:'list'
-    });
+      activeTab: 'list'
+    })
   }
 
-  onClickTabPay (activeTab){
+  onClickTabPay() {
+    console.log('tab pay click')
     this.setState({
-      activeTab:'pay'
-    });
+      activeTab: 'pay'
+    })
   }
 
+  renderContent() {
+    switch(this.state.activeTab) {
+      case 'add':
+        return <Add></Add>;
+      case 'list':
+        return <List></List>;
+      case 'pay':
+        return <Pay></Pay>;
+      default:
+        return (<h1>Error</h1>)
+    }
+  }
 
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <h1>Bakery</h1>
-        </div>
+      
+      <div className="row justify-content-center">
+        <Button isSelected={this.state.activeTab === 'add'} onClick={this.onClickTabAdd}>
+         Add
+        </Button>
+        <Button isSelected={this.state.activeTab === 'list'} onClick={this.onClickTabList}>
+          List
+        </Button>
+        <Button isSelected={this.state.activeTab === 'pay'} onClick={this.onClickTabPay}>
+          Pay
+        </Button>
 
-        {/* <div className="row justify-content-center">
-          <Button onClick={this.handleClick} isSelected={this.isSelected} activeTab={this.state.activeTab} children={['Add']}></Button>
-          <Button onClick={this.handleClick} isSelected={this.isSelected} children='List'></Button>
-          <Button onClick={this.handleClick} isSelected={this.isSelected} children='Pay'></Button>
-        </div> */}
-{/* 
-        <div className="App btn-group">
-          <Button onClick={this.handleClick.bind(this, 'add')}> Add </Button>
-          <Button onClick={this.handleClick.bind(this, 'list')}> List </Button> 
-          <Button onClick={this.handleClick.bind(this, 'pay')}> Pay </Button>
-        </div> */}
-
-        <div className="App btn-group">
-          <Button onClick={this.onClickTabAdd .bind(this)}> Add </Button>
-          <Button onClick={this.onClickTabList.bind(this)}> List </Button>
-          <Button onClick={this. onClickTabPay.bind(this)}> Pay </Button>
-        </div>
-
-        {this.state.activeTab === 'add' && <Add />}
-        {this.state.activeTab === 'list' && <List />}
-        {this.state.activeTab === 'pay' && <Pay />}
+        {this.renderContent()}
+        {/* {this.state.activeTab === 'add' ? <Add></Add>: (this.state.activeTab === 'list' ? <List></List> : <Pay></Pay>)} */}
       </div>
-
-
-
     );
   }
 }
 
 export default App;
-

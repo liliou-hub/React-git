@@ -6,7 +6,7 @@ class List extends Component {
     render() {
         return (
             <div className="App">
-                <h1>listhh</h1>
+                list
             </div>
 
         );
