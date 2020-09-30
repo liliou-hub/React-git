@@ -10,17 +10,17 @@ import Button from './components/core/Button'
 
 class App extends Component {
 
-
-
   constructor() {
     super();
     this.onClickTabAdd = this.onClickTabAdd.bind(this);
     this.onClickTabList = this.onClickTabList.bind(this);
     this.onClickTabPay = this.onClickTabPay.bind(this);
+
     this.state = {
       activeTab: 'add',
       items: []
     }
+    // console.log(items)
   }
 
 
@@ -45,10 +45,20 @@ class App extends Component {
     })
   }
 
+  addItem(price, input) {
+    this.setState({
+
+
+
+    })
+
+    console.log(price, input)
+  }
+
   renderContent() {
-    switch(this.state.activeTab) {
+    switch (this.state.activeTab) {
       case 'add':
-        return <Add></Add>;
+        return <Add callBack={this.addItem} ></Add>;
       case 'list':
         return <List></List>;
       case 'pay':
@@ -60,10 +70,10 @@ class App extends Component {
 
   render() {
     return (
-      
+
       <div className="row justify-content-center">
         <Button isSelected={this.state.activeTab === 'add'} onClick={this.onClickTabAdd}>
-         Add
+          Add
         </Button>
         <Button isSelected={this.state.activeTab === 'list'} onClick={this.onClickTabList}>
           List
