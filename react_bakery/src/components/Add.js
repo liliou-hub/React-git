@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Button from './core/Button'
 import RCSlider, { Range } from 'rc-slider';
 import 'rc-slider/assets/index.css'
-import List from './List';
+
 
 
 const PriceMax = 10
@@ -13,7 +13,7 @@ class Add extends Component {
   constructor() {
     super();
     this.state = {
-      input: ' ',
+      input: '',
       price: 1
     };
 
@@ -23,41 +23,25 @@ class Add extends Component {
   }
 
   updateInput(event) {
-
-    
- this.setState({
+    this.setState({
       input: event.target.value
     });
-    //  console.log(event.target.value)
-    
+    // console.log(event.target.value)
   }
 
   updatePrice(val) {
-
-   
-    this.setState({
+ this.setState({
       price: val
     });
     // console.log(val)
-   
   }
 
   submitForm() {
 
-    let newForm = this.state.input + ' ' + this.state.price
-    console.log(newForm)
+    // let newForm = this.state.input + ' ' + this.state.price + '€'
+    console.log('je passe par submitForm')
+    this.props.addItem(this.state.input, this.state.price)
 
-    let callBack=this.props.callBack
-    console.log(callBack)
-
-    let currentInput=this.state.input
-    console.log(currentInput)
-
-    let currentPrice=this.state.price
-    console.log(currentPrice)
-
-    let concat=currentInput+currentPrice
-    // console.log(concat)
   }
 
 
@@ -66,21 +50,19 @@ class Add extends Component {
   render() {
     return (
       <div className="App">
-        <form onClick={()=>this.submitForm()}>
+        <div>
           <label>
-            <input type="text" name='Add' input={this.state.input} onChange={this.updateInput} />
-
+            <input type="text" name='Add' onChange={this.updateInput} />
           </label>
-          <input type="submit" className='btn btn-primary' value="Add" />
-        </form>
+          <input type="submit" className='btn btn-primary' value="Add" onClick={() => this.submitForm()} />
+        </div>
 
         <RCSlider min={PriceMin}
-          max={PriceMax}
-          onChange={this.updatePrice}
-          price={this.props.price}
-        >{this.state.price}€</RCSlider>
-        
-
+                  max={PriceMax}
+                  onChange={this.updatePrice}
+        // value={this.state.price}
+        ></RCSlider>
+        {this.state.price + '€'}
       </div>
 
     );

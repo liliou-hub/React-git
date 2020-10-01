@@ -14,3 +14,28 @@ class List extends Component {
 }
 
 export default List;
+
+
+
+  
+
+//  bakeryList(props.newItems) {
+//  const itemsList = this.props.newItems;
+    
+//  }
+
+
+
+
+
+    
+
+//     return (
+//       <ul>
+//         {numbers.map((number) =>
+//           <ListItem key={number.toString()}
+//                     value={number} />
+//         )}
+//       </ul>
+//     );
+//   }
