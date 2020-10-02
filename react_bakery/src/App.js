@@ -16,7 +16,8 @@ class App extends Component {
     this.onClickTabList = this.onClickTabList.bind(this);
     this.onClickTabPay = this.onClickTabPay.bind(this);
     this.addItem = this.addItem.bind(this);
-    
+
+
 
     this.state = {
       activeTab: 'add',
@@ -27,36 +28,36 @@ class App extends Component {
 
 
   onClickTabAdd() {
-    console.log('tab add click')
+    // console.log('tab add click')
     this.setState({
       activeTab: 'add'
     })
   }
 
   onClickTabList() {
-    console.log('tab  list click')
+    // console.log('tab  list click')
     this.setState({
       activeTab: 'list'
     })
   }
 
   onClickTabPay() {
-    console.log('tab pay click')
+    // console.log('tab pay click')
     this.setState({
       activeTab: 'pay'
     })
   }
 
-  addItem(input,price) {
+  addItem(input, price) {
 
-    let  newItems=this.state.items
-    newItems.push({input,price})
+    let newItems = this.state.items
+    newItems.push({ input, price })
 
     this.setState({
       items: newItems
     })
     console.log(this.state.items)
-   
+
   }
 
   renderContent() {
@@ -64,7 +65,7 @@ class App extends Component {
       case 'add':
         return <Add addItem={this.addItem} ></Add>;
       case 'list':
-        return <List addItem={this.addItem}></List>;
+        return <List listItem={this.state.items}></List>;
       case 'pay':
         return <Pay></Pay>;
       default:
@@ -75,19 +76,24 @@ class App extends Component {
   render() {
     return (
 
-      <div className="row justify-content-center">
-        <Button isSelected={this.state.activeTab === 'add'} onClick={this.onClickTabAdd}>
-          Add
+      <div className="justify-content-center">
+        <div className="App-header">
+          Bakery
+        </div>
+        <div className="row justify-content-center mt-6">
+          <Button isSelected={this.state.activeTab === 'add'} onClick={this.onClickTabAdd}>
+            Add
         </Button>
-        <Button isSelected={this.state.activeTab === 'list'} onClick={this.onClickTabList}>
-          List
+          <Button isSelected={this.state.activeTab === 'list'} onClick={this.onClickTabList}>
+            List
         </Button>
-        <Button isSelected={this.state.activeTab === 'pay'} onClick={this.onClickTabPay}>
-          Pay
+          <Button isSelected={this.state.activeTab === 'pay'} onClick={this.onClickTabPay}>
+            Pay
         </Button>
 
-        {this.renderContent()}
-        {/* {this.state.activeTab === 'add' ? <Add></Add>: (this.state.activeTab === 'list' ? <List></List> : <Pay></Pay>)} */}
+          {this.renderContent()}
+          {/* {this.state.activeTab === 'add' ? <Add></Add>: (this.state.activeTab === 'list' ? <List></List> : <Pay></Pay>)} */}
+        </div>
       </div>
     );
   }

@@ -30,7 +30,8 @@ class Add extends Component {
   }
 
   updatePrice(val) {
- this.setState({
+
+    this.setState({
       price: val
     });
     // console.log(val)
@@ -44,9 +45,6 @@ class Add extends Component {
 
   }
 
-
-
-
   render() {
     return (
       <div className="App">
@@ -58,8 +56,8 @@ class Add extends Component {
         </div>
 
         <RCSlider min={PriceMin}
-                  max={PriceMax}
-                  onChange={this.updatePrice}
+          max={PriceMax}
+          onChange={this.updatePrice}
         // value={this.state.price}
         ></RCSlider>
         {this.state.price + '€'}
