@@ -5,6 +5,7 @@ import Add from './components/Add';
 import List from './components/List';
 import Pay from './components/Pay';
 import Button from './components/core/Button'
+import Card from './components/product/Card'
 
 
 
@@ -51,7 +52,10 @@ class App extends Component {
   addItem(input, price) {
 
     let newItems = this.state.items
-    newItems.push({ input, price })
+    newItems.push({
+       input, 
+       price
+       })
 
     this.setState({
       items: newItems
@@ -67,7 +71,7 @@ class App extends Component {
       case 'list':
         return <List listItem={this.state.items}></List>;
       case 'pay':
-        return <Pay></Pay>;
+        return <Pay listItem={this.state.items}></Pay>;
       default:
         return (<h1>Error</h1>)
     }
@@ -94,6 +98,8 @@ class App extends Component {
           {this.renderContent()}
           {/* {this.state.activeTab === 'add' ? <Add></Add>: (this.state.activeTab === 'list' ? <List></List> : <Pay></Pay>)} */}
         </div>
+
+        
       </div>
     );
   }
