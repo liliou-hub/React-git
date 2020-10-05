@@ -17,8 +17,9 @@ class Pay extends Component {
     }
 
     renderCards() {
-        
-       return  this.props.items.map((elem, index) => {
+       console.log(this.props)
+       return  this.props.listItem.map((elem, index) => {
+
             return <Card
                 key={index}
                 input={elem.input}
