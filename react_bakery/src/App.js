@@ -53,9 +53,9 @@ class App extends Component {
 
     let newItems = this.state.items
     newItems.push({
-       input, 
-       price
-       })
+      input,
+      price
+    })
 
     this.setState({
       items: newItems
@@ -99,7 +99,7 @@ class App extends Component {
           {/* {this.state.activeTab === 'add' ? <Add></Add>: (this.state.activeTab === 'list' ? <List></List> : <Pay></Pay>)} */}
         </div>
 
-        
+
       </div>
     );
   }
