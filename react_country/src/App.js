@@ -13,7 +13,7 @@ class App extends Component {
       name: '',
       capital: '',
       flag: '',
-      population:  0,
+      population: 0,
       region: ''
     }
 
@@ -25,7 +25,14 @@ class App extends Component {
       .then(res => res.json())
       .then(json => {
         // code
+        this.setState({
+          name: json[0].name,
+          capital: json[0].capital,
+          flag: json[0].flag,
+          population: json[0].population,
+          region: json[0].region
 
+        })
       });
 
   }
@@ -35,7 +42,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className='App-header'>
-Country Selector
+          Country Selector
         </div>
         <p>{this.state.name}</p>
         <p>{this.state.capital}</p>
