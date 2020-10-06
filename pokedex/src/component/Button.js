@@ -2,13 +2,21 @@ import React from 'react';
 
 class Button extends React.Component {
 
+    constructor() {
+        super();
+        this.click = this.click.bind(this);
+    }
+
+    click() {
+        console.log('[Button] click')
+        // ici on indique à notre composant parent qu'il y eu un clique sur le bouton
+        this.props.onClick()
+    }
+
     render() {
         return (
-            <div className="button">
-              
-             
-
-            </div>
+            <button onClick={this.click} className="img-thumbnail">
+                {this.props.children}</button>
         )
     }
 }

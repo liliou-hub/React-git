@@ -9,14 +9,14 @@ class App extends Component {
 
   constructor() {
     super();
+    this.pokeClick = this.pokeClick.bind(this);
 
-    this.componentDidMount = this.componentDidMount.bind(this);
     this.state = {
       name: '',
       height: 0,
       weight: 0,
       type: '',
-      id:[]
+      id:0
 
     }
 
@@ -24,7 +24,7 @@ class App extends Component {
 
 
   componentDidMount() {
-    fetch('https://pokeapi.co/api/v2/pokemon/25')
+    fetch('https://pokeapi.co/api/v2/pokemon/pikachu')
       .then(res => res.json())
       .then(json => {
         // code
@@ -35,15 +35,20 @@ class App extends Component {
           type: json.types[0].type.name,
           id:json.id      
         })
-        console.log('heyyy',json);
-        console.log('coucou',json.types[0].type.name)   
-        console.log('c\est encore moi',json.id);     
+        // console.log('heyyy',json.id);
+        // console.log('coucou',json.types[0].type.name)       
       });     
   }
 
-  handleClick(){
-    
-  }
+  pokeClick(id){
+    console.log('encore moi',this.componentDidMount(id));  
+    fetch(`https://pokeres.bastionbot.org/images/pokemon/${this.setState.id}`)
+  .then(res => res.json())
+  .then(json => {
+   
+  
+  });
+}
 
 
 
@@ -52,12 +57,13 @@ class App extends Component {
       <div className="App">
         <div className='App-header'>
         <h1>pokedex</h1>
-        <img className='poke'></img>
-        <p>Name: {this.state.name} </p>
+        <Button onClick={this.pokeClick}> {this.setState.id} </Button>
+        {/* <img className='poke'></img> */}
+        {/* <p>Name: {this.state.name} </p>
         <p>Height: {this.state.height} m</p>
         <p>Weight: {this.state.weight} Kg</p>
-        <p>Type: {this.state.type}</p>
-        {/* <Button onClick={this.clickHere}>send</Button> */}
+        <p>Type: {this.state.type}</p> */}
+        
         </div>
       </div>
     );
