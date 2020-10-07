@@ -16,6 +16,7 @@ class Button extends React.Component {
     render() {
         return (
             <button onClick={this.click} className="img-thumbnail">
+                {/* <img className='poke' src={`https://pokeres.bastionbot.org/images/pokemon/${this.props.id}.png`}></img> */}
                 {this.props.children}</button>
         )
     }
