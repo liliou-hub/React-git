@@ -15,6 +15,11 @@ import PopularBattle from './components/PopularBattle';
 import MyList from './components/MyList';
 
 class App extends React.Component {
+
+
+
+
+  
   render() {
     return (
       <Router>
