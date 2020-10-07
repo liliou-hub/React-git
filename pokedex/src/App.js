@@ -24,9 +24,8 @@ class App extends Component {
     }
 
   };
-  componentDidMount(){
+  componentDidMount() {
     this.choKapik('1')
-
   }
 
 
@@ -40,7 +39,7 @@ class App extends Component {
           height: json.height,
           weight: json.weight,
           type: json.types[0].type.name,
-          id:json.id
+          id: json.id
         })
         // console.log('heyyy',json.id);
         // console.log('coucou',json.types[0].type.name)       
