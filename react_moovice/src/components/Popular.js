@@ -18,7 +18,7 @@ class Popular extends React.Component {
             movies: json.results,
 
           });
-          console.log("dans componentDidMount", json.results);
+        //   console.log("dans componentDidMount", json.results);
         });
     }
 
