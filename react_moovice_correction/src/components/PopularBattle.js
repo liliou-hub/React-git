@@ -5,9 +5,14 @@ import placeholder from '../img/placeholder.png'
 import Card from './movie/Card'
 
 class PopularBattle extends React.Component {
-    
- state = {
-        movies: []
+    constructor() {
+        super()
+        this.choseFilm = this.choseFilm.bind(this)
+    }
+
+    state = {
+        movies: [],
+        currentPage: 1
     }
 
     componentDidMount() {
@@ -26,6 +31,7 @@ class PopularBattle extends React.Component {
                     //     imgUrl:`https://image.tmdb.org/t/p/w300/${elem.poster_path}`
                     // });
                     return {
+                        id: elem.id,
                         title: elem.title,
                         overview: elem.overview,
                         imgUrl: elem.poster_path ? `https://image.tmdb.org/t/p/w300/${elem.poster_path}` : placeholder
@@ -39,21 +45,80 @@ class PopularBattle extends React.Component {
             })
     }
 
+    choseFilm(id) {
+        // console.log('choseFilmid', id);
+        /*solution plus longue mais qui fonctionne)*/
+        // if (JSON.parse(localStorage.getItem('my-list'))) {
+        //     console.log('entréé ici');
+        //     myList = JSON.parse(localStorage.getItem('my-list'))
+        // }
+
+        let myList = JSON.parse(localStorage.getItem('my-list')) || []
+
+        if (!myList.includes(id)) {
+            myList.push(id)
+            console.log('my list', myList);
+            localStorage.setItem('my-list', JSON.stringify(myList))
+
+        }
+
+
+        this.setState({
+            currentPage: this.state.currentPage + 1
+        })
+
+    }
+
     render() {
+        // console.log('popularbattle render', this.state);
 
-      console.log('popularbattle render', this.state);
-       
-      const firstMovie=this.state.movies[0]
-      console.log('firstMovie', firstMovie);
 
-      return (
-        <div> 
-          <Card {...firstMovie}/>
-          
-           </div>
-       
+        const {
+            movies,
+            currentPage
+        } = this.state
+
+        const secondIndex = currentPage * 2 - 1
+        const firstIndex = secondIndex - 1
+
+
+        const firstMovie = movies[firstIndex]
+        // console.log('firstMovie', firstMovie);
+
+        const secondMovie = movies[secondIndex]
+        // console.log('secondMovie', secondMovie);
+
+
+        return (
+            <div className="row">
+                <div className="col-6">
+                    <button onClick={() => this.choseFilm(firstMovie.id)}>
+                        <Card {...firstMovie} />
+                    </button>
+                </div>
+                <div className="col-6">
+                    <button onClick={() => this.choseFilm(secondMovie.id)}>
+                        <Card {...secondMovie} />
+                    </button>
+                </div>
+            </div>
+
         )
     }
 }
 
- export default PopularBattle
+export default PopularBattle
+
+
+/*
+20 films:
+1page => 1er film et 2e film
+(num page x2= num du 2e film de chaque bataille)
+(num du 1er film =num du 2e film-1)
+2=> 3&4
+3=> 5&6
+.
+.
+.
+10=>19 &20
+ */
