@@ -3,6 +3,7 @@ import { API_KEY } from './service/Network'
 import placeholder from '../img/placeholder.png'
 
 import Card from './movie/Card'
+import MyList from './MyList';
 
 class PopularBattle extends React.Component {
     constructor() {
@@ -35,9 +36,7 @@ class PopularBattle extends React.Component {
                         title: elem.title,
                         overview: elem.overview,
                         imgUrl: elem.poster_path ? `https://image.tmdb.org/t/p/w300/${elem.poster_path}` : placeholder
-
                     }
-
                 })
                 // console.log('my movies',movies)
 
@@ -57,9 +56,8 @@ class PopularBattle extends React.Component {
 
         if (!myList.includes(id)) {
             myList.push(id)
-            console.log('my list', myList);
+            // console.log('my list', myList);
             localStorage.setItem('my-list', JSON.stringify(myList))
-
         }
 
 
@@ -95,12 +93,14 @@ class PopularBattle extends React.Component {
                     <button onClick={() => this.choseFilm(firstMovie.id)}>
                         <Card {...firstMovie} />
                     </button>
+                    
                 </div>
                 <div className="col-6">
                     <button onClick={() => this.choseFilm(secondMovie.id)}>
                         <Card {...secondMovie} />
                     </button>
                 </div>
+                <MyList choseFilm={this.choseFilm}/>
             </div>
 
         )

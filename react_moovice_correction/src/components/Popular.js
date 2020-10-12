@@ -49,8 +49,8 @@ class Popular extends React.Component {
             <div className='row'>
                 {movies.map((elem, index) => {
                     // console.log('popopular render map',elem);
-                    return <div className="col-6">
-                        <Card key={index} title={elem.title} overview={elem.overview} imgUrl={elem.imgUrl} />
+                    return <div key={index} className="col-6">
+                        <Card  title={elem.title} overview={elem.overview} imgUrl={elem.imgUrl} />
                     </div>
                 })}
             </div>
