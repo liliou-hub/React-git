@@ -12,6 +12,7 @@ class App extends Component {
     super();
     this.pokeClick = this.pokeClick.bind(this);
     this.subPokemon = this.subPokemon.bind(this);
+    this.choKapik = this.choKapik.bind(this);
 
     this.state = {
       name: '',
@@ -19,7 +20,7 @@ class App extends Component {
       weight: 0,
       type: '',
       id: '',
-      pokeList: ['']
+      pokeList: []
 
     }
 
@@ -70,8 +71,6 @@ class App extends Component {
     })
 
   }
-
-
 
   render() {
 

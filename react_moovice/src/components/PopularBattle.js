@@ -23,11 +23,6 @@ class PopularBattle extends React.Component {
 
         });
         console.log("ComponentDidMount", json.results[0]);
-
-
-        // 1 de la page => 1er film & 2eme film
-        // (num de la page * 2 => num du 2eme film)
-        // (num du 2eme film - 1 => num du 1er film)
       });
   }
 

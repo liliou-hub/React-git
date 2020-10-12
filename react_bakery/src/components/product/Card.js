@@ -30,8 +30,8 @@ class Card extends React.Component {
     render() {
         return (
             <div >
-                <button onClick={()=>this.props.onClickFn(this.props.input, this.props.price)}>
-                    <img src={this.state.source}  alt=''></img>
+                <button onClick={() => this.props.onClickFn(this.props.input, this.props.price)}>
+                    <img src={this.state.source} alt=''></img>
                 </button>
 
             </div>

@@ -44,7 +44,7 @@ class Add extends Component {
     this.props.addItem(this.state.input, this.state.price)
 
   }
- 
+
   render() {
     return (
       <div className="App">

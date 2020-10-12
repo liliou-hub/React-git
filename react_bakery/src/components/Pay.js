@@ -3,11 +3,11 @@ import Card from './product/Card'
 
 
 class Pay extends Component {
-constructor(){
-    super()
+    constructor() {
+        super()
 
-    this.onClickProduct = this.onClickProduct.bind(this);
-}
+        this.onClickProduct = this.onClickProduct.bind(this);
+    }
     state = {
         basket: [],
         total: 0,
@@ -15,14 +15,14 @@ constructor(){
         totalEcoTax: 0
     }
 
-    onClickProduct(name, price) {
-        console.log('hhhaaaaaaaaaaaaa',this.setState)
-        // console.log('tu as réussi, voici les inputs avec leur prix', name, price);
-        return this.setState.basket.map((name, price) => {
-        
-        })
-       
-    }
+    // onClickProduct(name, price) {
+    //     // console.log('hhhaaaaaaaaaaaaa',this.setState)
+    //     // // console.log('tu as réussi, voici les inputs avec leur prix', name, price);
+    //     // return this.setState.basket.map((name, price) => {
+
+    //     })
+
+    // }
 
     renderCards() {
         // console.log(this.props)

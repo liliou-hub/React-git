@@ -2,11 +2,7 @@ import React from 'react';
 // import './node_modules/bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Switch
+import { BrowserRouter as Router, Route, Link, Switch
 } from 'react-router-dom';
 import Discover from './components/Discover';
 import DiscoverBattle from './components/DiscoverBattle';
