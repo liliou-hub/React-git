@@ -102,7 +102,6 @@ class PopularBattle extends React.Component {
                 </div>
                 <MyList choseFilm={this.choseFilm}/>
             </div>
-
         )
     }
 }

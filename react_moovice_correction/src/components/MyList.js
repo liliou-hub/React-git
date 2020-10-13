@@ -9,51 +9,40 @@ class MyList extends React.Component {
   constructor() {
     super()
 
-    this.getFromLocalStorage = this.getFromLocalStorage.bind(this)
 
     this.state = {
-      // localStorage: [],
       movies: [],
-      // movieIds: this.getFromLocalStorage()
+      movieIds: getFromLocalStorage()
     }
-    // console.log('youhouuu', localStorage);
+   console.log('hellooo', movieIds);
   }
 
-  getFromLocalStorage(myList) {
-    // console.log(myList);   /*ne fonctionne pas*/
+  getFromLocalStoraget() {
+    let movieIdsList=JSON.parse(localStorage.getItem('my-list'))
 
-    let newMyList = this.props.choseFilm;
-    newMyList.push(myList);
-    // console.log('my new list', newMyList);   /*ne fonctionne pas*/
+    const theList = (ID) =>
+      fetch(`http://api.themoviedb.org/3/movie/${ID}?api_key=${API_KEY}`)
+        .then(res => res.json())
+        .then(data => data);
+        console.log('reeeee', theList);
+
+    const promises =movieIdsList.map(ID => theList(ID));
+
+    Promise.all(promises)
+      .then((theList) => {
+
+        console.log('heyheyhey', theList)
+        console.log('yoooo', theList[0])
+
+
+      });
 
     this.setState({
-      localStorage: newMyList,
-    });
+      movies: theList,
 
-    
-    console.log('storage', this.state.localStorage);
+    })
+
   }
-
-  // componentDidUpdate(){
-  //   let movies = [];
-
-  
-  // let fetchMovies = (movies) => 
-  //   fetch(`http://api.themoviedb.org/3/movie/${elem.id}?api_key=${API_KEY}`)
-  //   .then(res => res.json())
-  //   .then(data => data[0]); 
-  // let promises = movies.map(movies => fetchMovies(movies));
-  
-  
-  // Promise.all(promises)
-  //   .then((movies) => {
-      
-  //     console.log('countries[0].capital', movies[0]);
-  //     console.log('countries[1].capital', movies[1]);
-  //   });
-
-  // }
-  
 
   render() {
 
@@ -62,7 +51,9 @@ class MyList extends React.Component {
     // } = this.state
 
     return (
-      <div>My list</div>
+      <div>My list
+        <Card></Card>
+      </div>
     );
   }
 }
