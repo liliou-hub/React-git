@@ -1,16 +1,15 @@
-// export default new Api();
-import React from 'react';
+import { Config } from "../../src/Config";
 
-class Api  {
+class Api {
 
-    getHome()
+  getHome() {
+    return fetch(`${Config.host}/api/home`)
+      .then((res) => res.json())
+      .then((json) => json);
 
-  render() {
+    {
 
-    return (
-      <div></div>
-    );
+    }
   }
 }
 export default new Api();
- 
